@@ -1,0 +1,193 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license. -->
+<!-- See LICENSE in the project root for license information -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amsfort College!</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
+
+    <!-- LOCAL -->
+    <link rel="stylesheet" href="node_modules/office-ui-fabric-js/dist/css/fabric.min.css" />
+    <link rel="stylesheet" href="node_modules/office-ui-fabric-js/dist/css/fabric.components.css" />
+
+    <!-- CDN -->
+    <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
+    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />-->
+    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />-->
+
+    <!-- Template styles -->
+    <link href="app.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-font-m ms-welcome">
+    <header class="ms-welcome__header ms-bgColor-themeDarker ms-u-fadeIn500">
+        <object type="image/svg+xml" data="assets/logo_amsfort.svg">
+          Your browser does not support SVG
+        </object>
+        <h1 class="ms-fontSize-su ms-fontWeight-light ms-fontColor-white" id='koen'>Amsfort college</h1>
+    </header>
+  
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-neutralPrimary ms-u-slideUpIn20">Please sideload your addin to see app body.</h2>
+    </section>
+
+<main id="app-body" class="ms-welcome__main">
+  <div class="ms-Pivot">
+    <!-- tab menu -->
+    <ul class="ms-Pivot-links">
+        <li class="ms-Pivot-link is-selected" data-content="examcoverpage" title="My files" tabindex="1">
+          Voorbladen
+        </li>
+        <li class="ms-Pivot-link " data-content="recent" title="Recent" tabindex="1">
+          Recent
+        </li>
+        <li class="ms-Pivot-link " data-content="shared" title="Shared with me" tabindex="1">
+          Shared with me
+        </li>
+        <li class="ms-Pivot-link" tabindex="1">
+          <i class="ms-Pivot-ellipsis ms-Icon ms-Icon--More"></i>
+        </li>
+    </ul>
+    <!-- inhoud van de tabs -->
+
+  <div class="ms-Pivot-content ms-u-slideUpIn20" data-content="examcoverpage">
+    Gebruik onderstaande informatie om een voorblad voor schoolexamens te maken. 
+    <!-- Choose course -->
+    <div id='cp-vak' class="ms-Dropdown" tabindex="0">
+      <label class="ms-Label">Vak</label>
+      <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
+      <select class="ms-Dropdown-select">
+        <option>Kies een vak&amp;hellip;</option>
+        <option>Biologie</option>
+        <option>Engels</option>
+        <option>Natuur & Scheikunde</option>
+        <option>Wiskunde</option>
+      </select>
+    </div>
+
+    <!-- Datepicker-->
+    <div class="ms-DatePicker">
+      <div class="ms-TextField">
+        <label class="ms-Label">Examendatum</label>
+        <i class="ms-DatePicker-event ms-Icon ms-Icon--Event"></i>
+        <input class="ms-TextField-field" type="text" placeholder="Kies een datum&hellip;">
+      </div>
+      <div class="ms-DatePicker-monthComponents">
+        <span class="ms-DatePicker-nextMonth js-nextMonth"><i class="ms-Icon ms-Icon--ChevronRight"></i></span> 
+        <span class="ms-DatePicker-prevMonth js-prevMonth"><i class="ms-Icon ms-Icon--ChevronLeft"></i></span> 
+        <div class="ms-DatePicker-headerToggleView js-showMonthPicker"></div>
+      </div>
+      <span class="ms-DatePicker-goToday js-goToday">Naar vandaag</span> 
+      <div class="ms-DatePicker-monthPicker">
+        <div class="ms-DatePicker-header">
+          <div class="ms-DatePicker-yearComponents">
+            <span class="ms-DatePicker-nextYear js-nextYear"><i class="ms-Icon ms-Icon--ChevronRight"></i></span> 
+            <span class="ms-DatePicker-prevYear js-prevYear"><i class="ms-Icon ms-Icon--ChevronLeft"></i></span> 
+          </div>
+          <div class="ms-DatePicker-currentYear js-showYearPicker"></div>
+        </div>
+        <div class="ms-DatePicker-optionGrid">
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="0">Jan</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="1">Feb</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="2">Mar</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="3">Apr</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="4">Mei</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="5">Jun</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="6">Jul</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="7">Aug</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="8">Sep</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="9">Okt</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="10">Nov</span> 
+          <span class="ms-DatePicker-monthOption js-changeDate" data-month="11">Dec</span> 
+        </div>
+      </div>
+      <div class="ms-DatePicker-yearPicker">
+        <div class="ms-DatePicker-decadeComponents">
+          <span class="ms-DatePicker-nextDecade js-nextDecade"><i class="ms-Icon ms-Icon--ChevronRight"></i></span> 
+          <span class="ms-DatePicker-prevDecade js-prevDecade"><i class="ms-Icon ms-Icon--ChevronLeft"></i></span> 
+        </div>
+      </div>
+    </div>
+
+    <!-- Coverpage-->
+    <button class="ms-Button ms-Button--hero">
+      <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--Add"></i></span> 
+      <span id='button_coverpage' class="ms-Button-label">Maak voorblad</span> 
+    </button>
+  </div>
+  <div class="ms-Pivot-content" data-content="recent">
+    <div id="mainmenu">
+        <h2 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-neutralPrimary ms-u-slideUpIn20"> Discover what amsfort can do for you today! </h2>
+        <ul class="ms-List ms-welcome__features ms-u-slideUpIn10">
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Ribbon"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Achieve more with Office integration</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Unlock"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Unlock features and functionality</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Design"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Create and visualize like a pro</span>
+            </li>
+        </ul>
+        <br />
+        <br />
+        <p class="ms-font-l">Modify the source files, then click <b>Run</b>.</p>
+        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
+            <span class="ms-Button-label">Run</span>
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronRight"></i></span>
+        </div>
+    </div>
+  </div>
+  <div class="ms-Pivot-content" data-content="shared">
+    This is the shared with me tab.
+  </div>
+</div>
+
+    </main>
+    <!--
+    <main id="app-body" class="ms-welcome__main" style="display: none;">
+        <div id="mainmenu">
+        <h2 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-neutralPrimary ms-u-slideUpIn20"> Discover what amsfort can do for you today! </h2>
+        <ul class="ms-List ms-welcome__features ms-u-slideUpIn10">
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Ribbon"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Achieve more with Office integration</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Unlock"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Unlock features and functionality</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Design"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Create and visualize like a pro</span>
+            </li>
+        </ul>
+        <br />
+        <br />
+        <p class="ms-font-l">Modify the source files, then click <b>Run</b>.</p>
+        <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
+            <span class="ms-Button-label">Run</span>
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronRight"></i></span>
+        </div>
+    </div>
+    </main>
+-->
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="node_modules/office-ui-fabric-js/dist/js/fabric.js"></script>
+    <script type="text/javascript" src="node_modules/office-ui-fabric-js/lib/PickaDate.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+
+</body>
+
+</html>
